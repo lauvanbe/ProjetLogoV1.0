@@ -23,7 +23,7 @@ namespace ProjetLogoV1._0
                       "~/Scripts/bootstrap.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
+                      "~/Content/bootstrap-logo.css",
                       "~/Content/site.css"));
         }
     }

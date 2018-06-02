@@ -1,0 +1,36 @@
+﻿@using ProjetLogoV1._0.Models
+@model ProjetLogoV1._0.Models.Patient
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detail du patient</h2>
+
+<h3>Donnée du patient</h3>
+
+<ul>
+    <li>Nom du patient : @Model.Nom</li>
+    <li>Prénom du patient : @Model.Prenom</li>
+    <li>Date de naissance : @Model.DateNaissance.Date</li>
+    <li>Adresse Email : @Model.Email</li>
+    @if (Model.TelFixe == null)
+    {
+        <li>Pas de téléphone fixe connu!</li>
+    }
+    else
+    {
+        <li>Numéro de téléphone fixe : @Model.TelFixe</li>
+    }
+    
+    @if (Model.Gsm == null)
+    {
+        <li>Pas de GSM connu!</li>
+    }
+    else
+    {
+        <li>Numéro de GSM : @Model.Gsm</li>
+    }
+</ul>
+
+<h3>Adresse du patient</h3>
