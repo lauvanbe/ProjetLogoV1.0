@@ -1,0 +1,24 @@
+﻿@model ProjetLogoV1._0.Models.Patient
+@{
+    ViewBag.Title = "AjoutPatient";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Ajout d'un nouveau patient</h2>
+
+@using(Html.BeginForm("creation", "Patients"))
+{
+    <div class="form-group">
+        @Html.LabelFor(p => p.Nom)
+        @Html.TextBoxFor(p => p.Nom)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(p => p.Prenom)
+        @Html.TextBoxFor(p => p.Prenom)
+    </div>
+    <div class="form-group input-group-sm">
+        @Html.LabelFor(p => p.DateNaissance)
+        @Html.EditorFor(p => p.DateNaissance, new { @class = "form-control datepicker", placeholder = "Date de naissance" })
+        @Html.ValidationMessageFor(p => p.DateNaissance)
+    </div> 
+}

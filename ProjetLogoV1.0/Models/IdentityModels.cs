@@ -24,6 +24,8 @@ namespace ProjetLogoV1._0.Models
 
         public DbSet<Patient> Patients { get; set; }
 
+        public DbSet<Lateralite> Lateralites { get; set; }
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {

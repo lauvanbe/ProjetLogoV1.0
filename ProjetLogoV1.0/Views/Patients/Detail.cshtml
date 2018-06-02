@@ -12,7 +12,7 @@
 <ul>
     <li>Nom du patient : @Model.Nom</li>
     <li>Prénom du patient : @Model.Prenom</li>
-    <li>Date de naissance : @Model.DateNaissance.Date</li>
+    <li>Date de naissance : @Model.DateNaissance.Day / @Model.DateNaissance.Month / @Model.DateNaissance.Year</li>
     <li>Adresse Email : @Model.Email</li>
     @if (Model.TelFixe == null)
     {
@@ -31,6 +31,8 @@
     {
         <li>Numéro de GSM : @Model.Gsm</li>
     }
+    
+    <li>Latéralité : @Model.Lateralite.nom</li>
 </ul>
 
 <h3>Adresse du patient</h3>
@@ -50,3 +52,13 @@
     <li>Ville : @Model.Adresse.Ville</li>
     <li>Pays : @Model.Adresse.Pays</li>
 </ul>
+
+<h3>Informations complémentaires</h3>
+
+<h4>Anamnèse du patient</h4>
+
+<p>@Model.Anamnèse</p>
+
+<h4>Commentaires supplémentaires</h4>
+
+<p>@Model.Commentaire</p>

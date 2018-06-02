@@ -25,7 +25,7 @@ namespace ProjetLogoV1._0.Controllers
         // GET: Patients
         public ActionResult Index()
         {
-            var patients = _context.Patients.Include(a => a.Adresse).ToList();
+            var patients = _context.Patients.Include(a => a.Adresse).Include(l => l.Lateralite).ToList();
 
             return View(patients);
         }
@@ -33,13 +33,19 @@ namespace ProjetLogoV1._0.Controllers
         [Route("Detail/{id}")]
         public ActionResult Detail(int id)
         {
-            var patient = _context.Patients.Include(a => a.Adresse).SingleOrDefault(p => p.Id == id);
+            var patient = _context.Patients.Include(a => a.Adresse).Include(l => l.Lateralite).SingleOrDefault(p => p.Id == id);
 
             if (patient == null)
             {
                 return HttpNotFound();
             }
             return View(patient);
+        }
+
+        [Route("AjoutPatient")]
+        public ActionResult AjoutPatient()
+        {
+            return View();
         }
     }
 }

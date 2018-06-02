@@ -30,7 +30,7 @@ else
             <tr>
                 <td>@Html.ActionLink(patient.Nom, "Detail", "Patients", new {id = patient.Id}, null)</td>
                 <td>@patient.Prenom</td>
-                <td>@patient.DateNaissance.Date</td>
+                <td>@patient.DateNaissance.Day / @patient.DateNaissance.Month / @patient.DateNaissance.Year</td>
                 <td>@patient.Email</td>
                 <td>@patient.TelFixe</td>
                 <td>@patient.Gsm</td>

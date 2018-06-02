@@ -60,5 +60,10 @@ namespace ProjetLogoV1._0.Models
         [ForeignKey("Adresse")]
         public int AdresseId { get; set; }
 
+        public Lateralite Lateralite { get; set; }
+
+        [ForeignKey("Lateralite")]
+        public int LateraliteId { get; set; }
+
     }
 }
