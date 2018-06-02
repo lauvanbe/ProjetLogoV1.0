@@ -33,7 +33,7 @@ namespace ProjetLogoV1._0.Controllers
         [Route("Detail/{id}")]
         public ActionResult Detail(int id)
         {
-            var patient = _context.Patients.SingleOrDefault(p => p.Id == id);
+            var patient = _context.Patients.Include(a => a.Adresse).SingleOrDefault(p => p.Id == id);
 
             if (patient == null)
             {

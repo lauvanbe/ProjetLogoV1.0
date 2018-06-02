@@ -34,3 +34,19 @@
 </ul>
 
 <h3>Adresse du patient</h3>
+
+<ul>
+    <li>Nom de rue : @Model.Adresse.Rue</li>
+    <li>Numéro de maison/appartement : @Model.Adresse.NumeroRue</li>
+    @if (Model.Adresse.BoitePostal == null)
+    {
+        <li>Pas de numéo de boîte encodé!</li>
+    }
+    else
+    {
+        <li>Boîte postal : @Model.Adresse.BoitePostal</li>
+    }
+    <li>Code postal : @Model.Adresse.CodePostal</li>
+    <li>Ville : @Model.Adresse.Ville</li>
+    <li>Pays : @Model.Adresse.Pays</li>
+</ul>
