@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using ProjetLogoV1._0.Models;
+using ProjetLogoV1._0.ViewModels;
 
 namespace ProjetLogoV1._0.Controllers
 {
@@ -45,7 +46,14 @@ namespace ProjetLogoV1._0.Controllers
         [Route("AjoutPatient")]
         public ActionResult AjoutPatient()
         {
-            return View();
+            var lateralite = _context.Lateralites.ToList();
+
+            var viewModel = new NewPatientViewModel
+            {
+                Lateralites = lateralite
+            };
+
+            return View(viewModel);
         }
     }
 }

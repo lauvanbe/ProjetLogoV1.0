@@ -1,4 +1,4 @@
-﻿@model ProjetLogoV1._0.Models.Patient
+﻿@model ProjetLogoV1._0.ViewModels.NewPatientViewModel
 @{
     ViewBag.Title = "AjoutPatient";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -9,16 +9,20 @@
 @using(Html.BeginForm("creation", "Patients"))
 {
     <div class="form-group">
-        @Html.LabelFor(p => p.Nom)
-        @Html.TextBoxFor(p => p.Nom)
+        @Html.LabelFor(p => p.Patient.Nom)
+        @Html.TextBoxFor(p => p.Patient.Nom, new { @class = "form-control"})
     </div>
     <div class="form-group">
-        @Html.LabelFor(p => p.Prenom)
-        @Html.TextBoxFor(p => p.Prenom)
+        @Html.LabelFor(p => p.Patient.Prenom)
+        @Html.TextBoxFor(p => p.Patient.Prenom, new { @class = "form-control" })
     </div>
     <div class="form-group input-group-sm">
-        @Html.LabelFor(p => p.DateNaissance)
-        @Html.EditorFor(p => p.DateNaissance, new { @class = "form-control datepicker", placeholder = "Date de naissance" })
-        @Html.ValidationMessageFor(p => p.DateNaissance)
+        @Html.LabelFor(p => p.Patient.DateNaissance)
+        @Html.EditorFor(p => p.Patient.DateNaissance, new { @class = "form-control datepicker", placeholder = "Date de naissance" })
+        @Html.ValidationMessageFor(p => p.Patient.DateNaissance)
     </div> 
+    <div class="form-group">
+        @Html.LabelFor(p => p.Patient.LateraliteId)
+        @Html.DropDownListFor(p => p.Patient.LateraliteId, new SelectList(Model.Lateralites, "Id", "Nom"), "Selectionner la latéralité", new { @class = "form-control"} )
+    </div>
 }
