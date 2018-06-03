@@ -4,25 +4,106 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Ajout d'un nouveau patient</h2>
+<h2>Ajout d'un nouveau patient</h2><br/>
 
-@using(Html.BeginForm("creation", "Patients"))
+@using(Html.BeginForm("Creation", "Patients"))
 {
-    <div class="form-group">
-        @Html.LabelFor(p => p.Patient.Nom)
-        @Html.TextBoxFor(p => p.Patient.Nom, new { @class = "form-control"})
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                @Html.LabelFor(p => p.Patient.Nom)
+                @Html.TextBoxFor(p => p.Patient.Nom, new { @class = "form-control" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(p => p.Patient.Prenom)
+                @Html.TextBoxFor(p => p.Patient.Prenom, new { @class = "form-control" })
+            </div>
+
+            <div class="form-group input-group-sm">
+                @Html.LabelFor(p => p.Patient.DateNaissance)
+                <br />
+                @Html.EditorFor(p => p.Patient.DateNaissance, new { @class = "form-control datepicker", placeholder = "Date de naissance" })
+                @Html.ValidationMessageFor(p => p.Patient.DateNaissance)
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(p => p.Patient.Email)
+                <br />
+                @Html.EditorFor(p => p.Patient.Email, new { @class = "form-control" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(p => p.Patient.TelFixe)
+                @Html.TextBoxFor(p => p.Patient.TelFixe, new { @class = "form-control" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(p => p.Patient.Gsm)
+                @Html.TextBoxFor(p => p.Patient.Gsm, new { @class = "form-control" })
+            </div>
+            
+            <div class="form-group">
+                @Html.LabelFor(p => p.Patient.PersonneContact)
+                @Html.TextBoxFor(p => p.Patient.PersonneContact, new {@class = "form-control"})
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(p => p.Patient.TelContact)
+                @Html.TextBoxFor(p => p.Patient.TelContact, new {@class = "form-control"})
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(p => p.Patient.LateraliteId)
+                @Html.DropDownListFor(p => p.Patient.LateraliteId, new SelectList(Model.Lateralites, "Id", "Nom"), "Selectionner la latéralité", new {@class = "form-control"})
+            </div>
+        </div>
+        
+        <div class="col-md-4">
+            <div class="form-group">
+                @Html.LabelFor(p => p.Patient.Adresse.Rue)
+                @Html.TextBoxFor(p => p.Patient.Adresse.Rue, new {@class = "form-control"})
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(p => p.Patient.Adresse.NumeroRue)
+                @Html.TextBoxFor(p => p.Patient.Adresse.NumeroRue, new {@class = "form-control"})
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(p => p.Patient.Adresse.BoitePostal)
+                @Html.TextBoxFor(p => p.Patient.Adresse.BoitePostal, new {@class = "form-control"})
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(p => p.Patient.Adresse.CodePostal)
+                @Html.TextBoxFor(p => p.Patient.Adresse.CodePostal, new {@class = "form-control"})
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(p => p.Patient.Adresse.Ville)
+                @Html.TextBoxFor(p => p.Patient.Adresse.Ville, new {@class = "form-control"})
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(p => p.Patient.Adresse.Pays)
+                @Html.TextBoxFor(p => p.Patient.Adresse.Pays, new {@class = "form-control"})
+            </div>
+        </div>
+
+
+        <div class="col-md-4">
+            <div class="form-group">
+                @Html.LabelFor(p => p.Patient.Anamnèse)
+                @Html.TextAreaFor(p => p.Patient.Anamnèse, new {@class = "form-control"})
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(p => p.Patient.Commentaire)
+                @Html.TextAreaFor(p => p.Patient.Commentaire, new {@class = "form-control"})
+            </div>
+        </div>
     </div>
-    <div class="form-group">
-        @Html.LabelFor(p => p.Patient.Prenom)
-        @Html.TextBoxFor(p => p.Patient.Prenom, new { @class = "form-control" })
-    </div>
-    <div class="form-group input-group-sm">
-        @Html.LabelFor(p => p.Patient.DateNaissance)
-        @Html.EditorFor(p => p.Patient.DateNaissance, new { @class = "form-control datepicker", placeholder = "Date de naissance" })
-        @Html.ValidationMessageFor(p => p.Patient.DateNaissance)
-    </div> 
-    <div class="form-group">
-        @Html.LabelFor(p => p.Patient.LateraliteId)
-        @Html.DropDownListFor(p => p.Patient.LateraliteId, new SelectList(Model.Lateralites, "Id", "Nom"), "Selectionner la latéralité", new { @class = "form-control"} )
-    </div>
+
+    <button type="submit" class="btn btn-primary">Enregistrer</button>
 }

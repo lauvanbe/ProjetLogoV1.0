@@ -10,28 +10,28 @@ namespace ProjetLogoV1._0.Models
     {
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Nom de rue requis")]
         [StringLength(55)]
         [Display(Name = "Nom de rue")]
         public String Rue { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Numéro de rue requis")]
         [Display(Name = "Numéro de rue")]
         public int NumeroRue { get; set; }
 
         [Display(Name = "Boîte postal")]
         public int? BoitePostal { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Code Postal requis")]
         [Display(Name = "Code postal")]
         public int CodePostal { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Ville requise")]
         [StringLength(55)]
         [Display(Name = "Ville")]
         public string Ville { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Pays requis")]
         [StringLength(55)]
         [Display(Name = "Pays")]
         public string Pays { get; set; }

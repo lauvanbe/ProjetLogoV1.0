@@ -55,5 +55,13 @@ namespace ProjetLogoV1._0.Controllers
 
             return View(viewModel);
         }
+
+        [HttpPost]
+        public ActionResult Creation(Patient patient)
+        {
+            _context.Patients.Add(patient);
+            _context.SaveChanges();
+            return RedirectToAction("Index", "Patients");
+        }
     }
 }

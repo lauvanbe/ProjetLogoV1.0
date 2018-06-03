@@ -10,7 +10,7 @@ namespace ProjetLogoV1._0.Models
     {
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Latéralité requise")]
         [StringLength(55)]
         [Display(Name = "Latéralité")]
         public string nom { get; set; }

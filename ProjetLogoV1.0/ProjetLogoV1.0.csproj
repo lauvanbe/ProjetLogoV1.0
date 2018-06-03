@@ -238,6 +238,10 @@
     <Compile Include="Migrations\201806022140435_VerificationInsertDatePicker.Designer.cs">
       <DependentUpon>201806022140435_VerificationInsertDatePicker.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201806030631504_EmailPatient.cs" />
+    <Compile Include="Migrations\201806030631504_EmailPatient.Designer.cs">
+      <DependentUpon>201806030631504_EmailPatient.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Adresse.cs" />
@@ -496,6 +500,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201806022140435_VerificationInsertDatePicker.resx">
       <DependentUpon>201806022140435_VerificationInsertDatePicker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806030631504_EmailPatient.resx">
+      <DependentUpon>201806030631504_EmailPatient.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

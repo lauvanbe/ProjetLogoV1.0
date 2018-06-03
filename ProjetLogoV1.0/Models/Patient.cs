@@ -12,25 +12,26 @@ namespace ProjetLogoV1._0.Models
     {
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Le nom du patient est requis")]
         [StringLength(55)]
         [Display(Name = "Nom")]
         public string Nom { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Le prénom du patient est requis")]
         [StringLength(55)]
         [Display(Name = "Prénom")]
         public string Prenom { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Date de naissance requise")]
         [Display(Name = "Date de naissance")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime DateNaissance { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Email du patient requis")]
         [Display(Name = "Adresse Email")]
         [DataType(DataType.EmailAddress)]
+        [EmailAddress]
         public string Email { get; set; }
 
         [Display(Name = "Téléphone fixe")]
@@ -46,7 +47,7 @@ namespace ProjetLogoV1._0.Models
         [Display(Name = "Téléphone personne de contact")]
         public int? TelContact { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Anamnèse requise")]
         [StringLength(2000)]
         [Display(Name = "Anamnèse")]
         public string Anamnèse { get; set; }
