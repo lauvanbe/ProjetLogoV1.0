@@ -21,6 +21,7 @@ else
             <th>Adresse Email</th>
             <th>Téléphone fixe</th>
             <th>Gsm</th>
+            <th>Edition - Suppression</th>
         </tr>
         </thead>
         <tbody>
@@ -34,6 +35,10 @@ else
                 <td>@patient.Email</td>
                 <td>@patient.TelFixe</td>
                 <td>@patient.Gsm</td>
+                <td>
+                    <button type="submit" class="btn btn-warning btn-sm">Editer</button>
+                    <button type="submit" class="btn btn-danger btn-sm">Supprimer</button>
+                </td>
             </tr>
         }
         </tbody>

@@ -63,5 +63,10 @@ namespace ProjetLogoV1._0.Controllers
             _context.SaveChanges();
             return RedirectToAction("Index", "Patients");
         }
+
+        public ActionResult Editer(int id)
+        {
+            return View();
+        }
     }
 }

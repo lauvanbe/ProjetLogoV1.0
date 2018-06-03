@@ -456,6 +456,7 @@
     <Content Include="Views\Shared\_NavBar.cshtml" />
     <Content Include="Views\Patients\Detail.cshtml" />
     <Content Include="Views\Patients\AjoutPatient.cshtml" />
+    <Content Include="Views\Patients\Editer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
