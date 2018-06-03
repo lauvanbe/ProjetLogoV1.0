@@ -36,11 +36,13 @@ else
                 <td>@patient.TelFixe</td>
                 <td>@patient.Gsm</td>
                 <td>
-                    <button type="submit" class="btn btn-warning btn-sm">Editer</button>
+                    <button type="submit" class="btn btn-warning btn-sm"  onclick="location.href='@Url.Action("Editer", "Patients", new {id = patient.Id})';">Editer</button>
                     <button type="submit" class="btn btn-danger btn-sm">Supprimer</button>
                 </td>
             </tr>
         }
         </tbody>
     </table>
+
+    <button type="submit" class="btn btn-primary" onclick="location.href='@Url.Action("AjoutPatient", "Patients")';">Ajouter un nouveau patient</button>
 }

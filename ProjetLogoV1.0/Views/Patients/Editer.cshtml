@@ -8,88 +8,88 @@
 
 <h2>Ajout d'un nouveau patient</h2><br />
 
-@using (Html.BeginForm("Editer", "Patients"))
+@using (Html.BeginForm("Save", "Patients"))
 {
     <div class="row">
         <div class="col-md-4">
             <div class="form-group">
                 @Html.LabelFor(p => p.Patient.Nom)
-                @Html.TextBoxFor(p => p.Patient.Nom, new { @class = "form-control" })
+                @Html.TextBoxFor(p => p.Patient.Nom, new {@class = "form-control"})
             </div>
 
             <div class="form-group">
                 @Html.LabelFor(p => p.Patient.Prenom)
-                @Html.TextBoxFor(p => p.Patient.Prenom, new { @class = "form-control" })
+                @Html.TextBoxFor(p => p.Patient.Prenom, new {@class = "form-control"})
             </div>
 
             <div class="form-group input-group-sm">
                 @Html.LabelFor(p => p.Patient.DateNaissance)
-                <br />
-                @Html.EditorFor(p => p.Patient.DateNaissance, new { @class = "form-control datepicker", placeholder = "Date de naissance" })
+                <br/>
+                @Html.TextBoxFor(p => p.Patient.DateNaissance,"{0:d MMM yyyy}", new {@class = "form-control"})
                 @Html.ValidationMessageFor(p => p.Patient.DateNaissance)
             </div>
 
             <div class="form-group">
                 @Html.LabelFor(p => p.Patient.Email)
-                <br />
-                @Html.EditorFor(p => p.Patient.Email, new { @class = "form-control" })
+                <br/>
+                @Html.EditorFor(p => p.Patient.Email, new {@class = "form-control"})
             </div>
 
             <div class="form-group">
                 @Html.LabelFor(p => p.Patient.TelFixe)
-                @Html.TextBoxFor(p => p.Patient.TelFixe, new { @class = "form-control" })
+                @Html.TextBoxFor(p => p.Patient.TelFixe, new {@class = "form-control"})
             </div>
 
             <div class="form-group">
                 @Html.LabelFor(p => p.Patient.Gsm)
-                @Html.TextBoxFor(p => p.Patient.Gsm, new { @class = "form-control" })
+                @Html.TextBoxFor(p => p.Patient.Gsm, new {@class = "form-control"})
             </div>
 
             <div class="form-group">
                 @Html.LabelFor(p => p.Patient.PersonneContact)
-                @Html.TextBoxFor(p => p.Patient.PersonneContact, new { @class = "form-control" })
+                @Html.TextBoxFor(p => p.Patient.PersonneContact, new {@class = "form-control"})
             </div>
 
             <div class="form-group">
                 @Html.LabelFor(p => p.Patient.TelContact)
-                @Html.TextBoxFor(p => p.Patient.TelContact, new { @class = "form-control" })
+                @Html.TextBoxFor(p => p.Patient.TelContact, new {@class = "form-control"})
             </div>
 
             <div class="form-group">
                 @Html.LabelFor(p => p.Patient.LateraliteId)
-                @Html.DropDownListFor(p => p.Patient.LateraliteId, new SelectList(Model.Lateralites, "Id", "Nom"), "Selectionner la latéralité", new { @class = "form-control" })
+                @Html.DropDownListFor(p => p.Patient.LateraliteId, new SelectList(Model.Lateralites, "Id", "Nom"), "Selectionner la latéralité", new {@class = "form-control"})
             </div>
         </div>
 
         <div class="col-md-4">
             <div class="form-group">
                 @Html.LabelFor(p => p.Patient.Adresse.Rue)
-                @Html.TextBoxFor(p => p.Patient.Adresse.Rue, new { @class = "form-control" })
+                @Html.TextBoxFor(p => p.Patient.Adresse.Rue, new {@class = "form-control"})
             </div>
 
             <div class="form-group">
                 @Html.LabelFor(p => p.Patient.Adresse.NumeroRue)
-                @Html.TextBoxFor(p => p.Patient.Adresse.NumeroRue, new { @class = "form-control" })
+                @Html.TextBoxFor(p => p.Patient.Adresse.NumeroRue, new {@class = "form-control"})
             </div>
 
             <div class="form-group">
                 @Html.LabelFor(p => p.Patient.Adresse.BoitePostal)
-                @Html.TextBoxFor(p => p.Patient.Adresse.BoitePostal, new { @class = "form-control" })
+                @Html.TextBoxFor(p => p.Patient.Adresse.BoitePostal, new {@class = "form-control"})
             </div>
 
             <div class="form-group">
                 @Html.LabelFor(p => p.Patient.Adresse.CodePostal)
-                @Html.TextBoxFor(p => p.Patient.Adresse.CodePostal, new { @class = "form-control" })
+                @Html.TextBoxFor(p => p.Patient.Adresse.CodePostal, new {@class = "form-control"})
             </div>
 
             <div class="form-group">
                 @Html.LabelFor(p => p.Patient.Adresse.Ville)
-                @Html.TextBoxFor(p => p.Patient.Adresse.Ville, new { @class = "form-control" })
+                @Html.TextBoxFor(p => p.Patient.Adresse.Ville, new {@class = "form-control"})
             </div>
 
             <div class="form-group">
                 @Html.LabelFor(p => p.Patient.Adresse.Pays)
-                @Html.TextBoxFor(p => p.Patient.Adresse.Pays, new { @class = "form-control" })
+                @Html.TextBoxFor(p => p.Patient.Adresse.Pays, new {@class = "form-control"})
             </div>
         </div>
 
@@ -97,14 +97,16 @@
         <div class="col-md-4">
             <div class="form-group">
                 @Html.LabelFor(p => p.Patient.Anamnèse)
-                @Html.TextAreaFor(p => p.Patient.Anamnèse, new { @class = "form-control" })
+                @Html.TextAreaFor(p => p.Patient.Anamnèse, new {@class = "form-control"})
             </div>
 
             <div class="form-group">
                 @Html.LabelFor(p => p.Patient.Commentaire)
-                @Html.TextAreaFor(p => p.Patient.Commentaire, new { @class = "form-control" })
+                @Html.TextAreaFor(p => p.Patient.Commentaire, new {@class = "form-control"})
             </div>
         </div>
     </div>
-
+    @Html.HiddenFor(p => p.Patient.Id)
     <button type="submit" class="btn btn-success btn-lg">Enregistrer</button>
+    <button type="button" class="btn btn-primary btn-lg" onclick="window.history.back();">Annuler</button>
+}

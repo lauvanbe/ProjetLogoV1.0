@@ -57,16 +57,53 @@ namespace ProjetLogoV1._0.Controllers
         }
 
         [HttpPost]
-        public ActionResult Creation(Patient patient)
+        public ActionResult Save(Patient patient)
         {
-            _context.Patients.Add(patient);
+            if (patient.Id == 0)
+            {
+                _context.Patients.Add(patient);
+            }
+            else
+            {
+                var patientInDb = _context.Patients.Include(a => a.Adresse).Single(p => p.Id == patient.Id);
+
+                patientInDb.Nom = patient.Nom;
+                patientInDb.Prenom = patient.Prenom;
+                patientInDb.DateNaissance = patient.DateNaissance;
+                patientInDb.Email = patient.Email;
+                patientInDb.TelFixe = patient.TelFixe;
+                patientInDb.Gsm = patient.Gsm;
+                patientInDb.PersonneContact = patient.PersonneContact;
+                patientInDb.TelContact = patient.TelContact;
+                patientInDb.LateraliteId = patient.LateraliteId;
+                patientInDb.Adresse.Rue = patient.Adresse.Rue;
+                patientInDb.Adresse.NumeroRue = patient.Adresse.NumeroRue;
+                patientInDb.Adresse.BoitePostal = patient.Adresse.BoitePostal;
+                patientInDb.Adresse.CodePostal = patient.Adresse.CodePostal;
+                patientInDb.Adresse.Ville = patient.Adresse.Ville;
+                patientInDb.Adresse.Pays = patient.Adresse.Pays;
+                patientInDb.Anamnèse = patient.Anamnèse;
+                patientInDb.Commentaire = patient.Commentaire;
+            }
             _context.SaveChanges();
             return RedirectToAction("Index", "Patients");
         }
 
         public ActionResult Editer(int id)
         {
-            return View();
+            var patient = _context.Patients.Include(a => a.Adresse).SingleOrDefault(p => p.Id == id);
+
+            if (patient == null)
+            {
+                return HttpNotFound();
+            }
+
+            var viewModel = new NewPatientViewModel
+            {
+                Patient = patient,
+                Lateralites = _context.Lateralites.ToList()
+            };
+            return View(viewModel);
         }
     }
 }
