@@ -1,5 +1,6 @@
 ﻿using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Web.Mvc;
 using AutoMapper;
 using ProjetLogoV1._0.Models;
@@ -109,11 +110,5 @@ namespace ProjetLogoV1._0.Controllers
             };
             return View(viewModel);
         }
-
-        public ActionResult Supprimer()
-        {
-            return View();
-        }
-
     }
 }
