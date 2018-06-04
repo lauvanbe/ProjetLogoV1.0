@@ -1,8 +1,5 @@
-﻿using System;
-using System.Data.Entity;
-using System.Collections.Generic;
+﻿using System.Data.Entity;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using ProjetLogoV1._0.Models;
 using ProjetLogoV1._0.ViewModels;
@@ -50,6 +47,7 @@ namespace ProjetLogoV1._0.Controllers
 
             var viewModel = new NewPatientViewModel
             {
+                Patient = new Patient(),
                 Lateralites = lateralite
             };
 
@@ -57,8 +55,20 @@ namespace ProjetLogoV1._0.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Patient patient)
         {
+            if (!ModelState.IsValid)
+            {
+                var viewModel = new NewPatientViewModel
+                {
+                    Patient = patient,
+                    Lateralites = _context.Lateralites.ToList()
+                };
+
+                return View("AjoutPatient", viewModel);
+            }
+
             if (patient.Id == 0)
             {
                 _context.Patients.Add(patient);
@@ -105,5 +115,6 @@ namespace ProjetLogoV1._0.Controllers
             };
             return View(viewModel);
         }
+
     }
 }
