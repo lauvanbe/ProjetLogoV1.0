@@ -20,6 +20,12 @@ namespace ProjetLogoV1._0.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<Praticien> Praticiens { get; set; }
+
+        public DbSet<Specialisation> Specialisations { get; set; }
+
+        public DbSet<Fonction> Fonctions { get; set; }
+
         public DbSet<Adresse> Adresses { get; set; }
 
         public DbSet<Patient> Patients { get; set; }

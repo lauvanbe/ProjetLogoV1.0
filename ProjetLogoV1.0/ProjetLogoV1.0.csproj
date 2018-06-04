@@ -203,6 +203,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PatientsController.cs" />
+    <Compile Include="Controllers\PraticiensController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -250,14 +251,37 @@
     <Compile Include="Migrations\201806041213529_seedsUsers.Designer.cs">
       <DependentUpon>201806041213529_seedsUsers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201806041352538_AjoutFonctionModel.cs" />
+    <Compile Include="Migrations\201806041352538_AjoutFonctionModel.Designer.cs">
+      <DependentUpon>201806041352538_AjoutFonctionModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806041354117_AjoutFonctionModel1.cs" />
+    <Compile Include="Migrations\201806041354117_AjoutFonctionModel1.Designer.cs">
+      <DependentUpon>201806041354117_AjoutFonctionModel1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806041359253_AjoutSpecialisationModel.cs" />
+    <Compile Include="Migrations\201806041359253_AjoutSpecialisationModel.Designer.cs">
+      <DependentUpon>201806041359253_AjoutSpecialisationModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806041400210_AjoutDonneeFonction.cs" />
+    <Compile Include="Migrations\201806041400210_AjoutDonneeFonction.Designer.cs">
+      <DependentUpon>201806041400210_AjoutDonneeFonction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806041414415_AjoutPraticienModel.cs" />
+    <Compile Include="Migrations\201806041414415_AjoutPraticienModel.Designer.cs">
+      <DependentUpon>201806041414415_AjoutPraticienModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Adresse.cs" />
+    <Compile Include="Models\Fonction.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Lateralite.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\NomRole.cs" />
     <Compile Include="Models\Patient.cs" />
+    <Compile Include="Models\Praticien.cs" />
+    <Compile Include="Models\Specialisation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\NewPatientViewModel.cs" />
@@ -469,6 +493,7 @@
     <Content Include="Views\Patients\AjoutPatient.cshtml" />
     <Content Include="Views\Patients\Editer.cshtml" />
     <Content Include="Views\Patients\ReadOnlyPatient.cshtml" />
+    <Content Include="Views\Praticiens\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -519,6 +544,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201806041213529_seedsUsers.resx">
       <DependentUpon>201806041213529_seedsUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806041352538_AjoutFonctionModel.resx">
+      <DependentUpon>201806041352538_AjoutFonctionModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806041354117_AjoutFonctionModel1.resx">
+      <DependentUpon>201806041354117_AjoutFonctionModel1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806041359253_AjoutSpecialisationModel.resx">
+      <DependentUpon>201806041359253_AjoutSpecialisationModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806041400210_AjoutDonneeFonction.resx">
+      <DependentUpon>201806041400210_AjoutDonneeFonction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806041414415_AjoutPraticienModel.resx">
+      <DependentUpon>201806041414415_AjoutPraticienModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

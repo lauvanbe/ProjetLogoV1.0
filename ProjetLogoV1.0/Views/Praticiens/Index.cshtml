@@ -1,0 +1,52 @@
+﻿@model IEnumerable<ProjetLogoV1._0.Models.Praticien>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<h2>Gestion des patients</h2>
+
+@if (!Model.Any())
+{
+    <p>Pas encore de patients connu!</p>
+}
+else
+{
+    <table class="table table-striped table-hover">
+        <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Numéro Inami</th>
+            <th>Spécialisation</th>
+            <th>Adresse Email</th>
+            <th>Téléphone fixe</th>
+            <th>Gsm</th>
+            <th>Edition - Suppression</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        @foreach (var praticien in Model)
+        {
+            <tr>
+                <td>@Html.ActionLink(praticien.Nom, "Detail", "Praticien", new {id = praticien.Id}, null)</td>
+                <td>@praticien.Prenom</td>
+                <td>@praticien.Inami</td>
+                <td>@praticien.Specialisation.Nom</td>
+                <td>@praticien.Email</td>
+                <td>0032/@praticien.TelFixe</td>
+                <td>0032/@praticien.Gsm</td>
+                <td>
+                    <button type="submit" class="btn btn-warning btn-sm" onclick="location.href = '@Url.Action("Editer", "Praticien", new {id = praticien.Id})';">Editer</button>
+                    <button type="submit" class="btn btn-danger btn-sm">Supprimer</button>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+
+    <button type="submit" class="btn btn-primary" onclick="location.href = '@Url.Action("AjoutPatient", "Patients")';">Ajouter un nouveau praticien</button>
+}
