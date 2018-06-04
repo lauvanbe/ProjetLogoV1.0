@@ -21,6 +21,7 @@ namespace ProjetLogoV1._0
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
+                      "~/Scripts/bootbox.js",
                       "~/Scripts/bootstrap-datepicker.js",
                       "~/Scripts/DatePickerReady.js",
                       "~/Scripts/respond.js"));
