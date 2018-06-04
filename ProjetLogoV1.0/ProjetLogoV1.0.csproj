@@ -494,6 +494,7 @@
     <Content Include="Views\Patients\Editer.cshtml" />
     <Content Include="Views\Patients\ReadOnlyPatient.cshtml" />
     <Content Include="Views\Praticiens\Index.cshtml" />
+    <Content Include="Views\Praticiens\ReadOnlyPraticien.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
