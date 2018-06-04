@@ -246,12 +246,17 @@
     <Compile Include="Migrations\201806030631504_EmailPatient.Designer.cs">
       <DependentUpon>201806030631504_EmailPatient.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201806041213529_seedsUsers.cs" />
+    <Compile Include="Migrations\201806041213529_seedsUsers.Designer.cs">
+      <DependentUpon>201806041213529_seedsUsers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Adresse.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Lateralite.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\NomRole.cs" />
     <Compile Include="Models\Patient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -463,6 +468,7 @@
     <Content Include="Views\Patients\Detail.cshtml" />
     <Content Include="Views\Patients\AjoutPatient.cshtml" />
     <Content Include="Views\Patients\Editer.cshtml" />
+    <Content Include="Views\Patients\ReadOnlyPatient.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -510,6 +516,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201806030631504_EmailPatient.resx">
       <DependentUpon>201806030631504_EmailPatient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806041213529_seedsUsers.resx">
+      <DependentUpon>201806041213529_seedsUsers.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

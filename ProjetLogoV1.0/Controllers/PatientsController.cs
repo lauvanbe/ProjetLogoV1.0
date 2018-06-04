@@ -22,11 +22,19 @@ namespace ProjetLogoV1._0.Controllers
         }
 
         // GET: Patients
-        public ActionResult Index()
+ 
+        public ViewResult Index()
         {
-            var patients = _context.Patients.Include(a => a.Adresse).Include(l => l.Lateralite).ToList();
 
-            return View(patients);
+            var patients = _context.Patients.Include(a => a.Adresse).Include(l => l.Lateralite).ToList();
+            if (User.IsInRole(NomRole.CanManagePatients))
+            {
+                return View("index", patients);
+            }
+            
+             return View("ReadOnlyPatient", patients);
+            
+ 
         }
 
         [Route("Detail/{id}")]
@@ -100,6 +108,11 @@ namespace ProjetLogoV1._0.Controllers
                 Lateralites = _context.Lateralites.ToList()
             };
             return View(viewModel);
+        }
+
+        public ActionResult Supprimer()
+        {
+            return View();
         }
 
     }

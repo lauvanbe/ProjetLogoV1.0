@@ -1,10 +1,11 @@
 ﻿@model IEnumerable<ProjetLogoV1._0.Models.Patient>
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "ReadOnlyPatient";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Gestion des patients</h2>
+<h2>Liste de patients</h2>
+
 
 @if (!Model.Any())
 {
@@ -21,28 +22,20 @@ else
             <th>Adresse Email</th>
             <th>Téléphone fixe</th>
             <th>Gsm</th>
-            <th>Edition - Suppression</th>
         </tr>
         </thead>
         <tbody>
-        
         @foreach (var patient in Model)
         {
             <tr>
-                <td>@Html.ActionLink(patient.Nom, "Detail", "Patients", new {id = patient.Id}, null)</td>
+                <td>@patient.Nom</td>
                 <td>@patient.Prenom</td>
                 <td>@patient.DateNaissance.Day / @patient.DateNaissance.Month / @patient.DateNaissance.Year</td>
                 <td>@patient.Email</td>
                 <td>0032/@patient.TelFixe</td>
                 <td>0032/@patient.Gsm</td>
-                <td>
-                    <button type="submit" class="btn btn-warning btn-sm"  onclick="location.href='@Url.Action("Editer", "Patients", new {id = patient.Id})';">Editer</button>
-                    <button type="submit" class="btn btn-danger btn-sm">Supprimer</button>
-                </td>
             </tr>
         }
         </tbody>
     </table>
-
-    <button type="submit" class="btn btn-primary" onclick="location.href='@Url.Action("AjoutPatient", "Patients")';">Ajouter un nouveau patient</button>
 }
