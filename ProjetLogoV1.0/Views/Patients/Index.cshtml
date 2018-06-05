@@ -29,14 +29,14 @@ else
         @foreach (var patient in Model)
         {
             <tr>
-                <td>@Html.ActionLink(patient.Nom, "Detail", "Patients", new {id = patient.Id}, null)</td>
+                <td>@Html.ActionLink(patient.Nom, "DetailPatient", "Patients", new {id = patient.Id}, null)</td>
                 <td>@patient.Prenom</td>
                 <td>@patient.DateNaissance.Day / @patient.DateNaissance.Month / @patient.DateNaissance.Year</td>
                 <td>@patient.Email</td>
                 <td>0032/@patient.TelFixe</td>
                 <td>0032/@patient.Gsm</td>
                 <td>
-                    <button type="submit" class="btn btn-warning btn-sm"  onclick="location.href='@Url.Action("Editer", "Patients", new {id = patient.Id})';">Editer</button>
+                    <button type="submit" class="btn btn-warning btn-sm"  onclick="location.href='@Url.Action("EditerPatient", "Patients", new {id = patient.Id})';">Editer</button>
                     <button data-patient-id="@patient.Id" class="btn btn-danger btn-sm js-delete">Supprimer</button>
                 </td>
             </tr>
@@ -45,26 +45,32 @@ else
     </table>  
 }
 
-<button type="submit" class="btn btn-primary" onclick="location.href='@Url.Action("AjoutPatient", "Patients")';">Ajouter un nouveau patient</button>
+<button type="submit" class="btn btn-primary btn-lg" onclick="location.href='@Url.Action("AjoutPatient", "Patients")';">Ajouter un nouveau patient</button>
 
 @section scripts
 {
     <script>
-        $(document).ready(function() {
-            $("#patients .js-delete").on("click",
+        $(document).ready(function () {
+
+            var table = $("#patients").dataTable();
+
+            $("#patients").on("click", ".js-delete",
                 function() {
 
                     var button = $(this);
 
-                    if (confirm("Etes vous sur de vouloir supprimer ce patient?")) {
-                        $.ajax({
-                            url: "/api/patients/" + button.attr("data-patient-id"),
-                            method: "DELETE",
-                            success: function () {
-                                button.parents("tr").remove();
+                    bootbox.confirm("Etes vous sur de vouloir supprimer ce patient?",
+                        function(result) {
+                            if (result) {
+                                $.ajax({
+                                    url: "/api/patients/" + button.attr("data-patient-id"),
+                                    method: "DELETE",
+                                    success: function () {
+                                        table.row(button.parents("tr")).remove().draw();
+                                    }
+                                });
                             }
                         });
-                    }
                 });
         });
     </script>

@@ -3,6 +3,7 @@ using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 using AutoMapper;
+using ProjetLogoV1._0.Dtos;
 using ProjetLogoV1._0.Models;
 using ProjetLogoV1._0.ViewModels;
 
@@ -38,8 +39,8 @@ namespace ProjetLogoV1._0.Controllers
  
         }
 
-        [Route("Detail/{id}")]
-        public ActionResult Detail(int id)
+        [Route("DetailPatient/{id}")]
+        public ActionResult DetailPatient(int id)
         {
             var patient = _context.Patients.Include(a => a.Adresse).Include(l => l.Lateralite).SingleOrDefault(p => p.Id == id);
 
@@ -86,30 +87,15 @@ namespace ProjetLogoV1._0.Controllers
             else
             {
                 var patientInDb = _context.Patients.Include(a => a.Adresse).Single(p => p.Id == patient.Id);
-                patientInDb.Nom = patient.Nom;
-                patientInDb.Prenom = patient.Prenom;
-                patientInDb.DateNaissance = patient.DateNaissance;
-                patientInDb.Email = patient.Email;
-                patientInDb.TelFixe = patient.TelFixe;
-                patientInDb.Gsm = patient.Gsm;
-                patientInDb.PersonneContact = patient.PersonneContact;
-                patientInDb.TelContact = patient.TelContact;
-                patientInDb.LateraliteId = patient.LateraliteId;
-                patientInDb.Adresse.Rue = patient.Adresse.Rue;
-                patientInDb.Adresse.NumeroRue = patient.Adresse.NumeroRue;
-                patientInDb.Adresse.BoitePostal = patient.Adresse.BoitePostal;
-                patientInDb.Adresse.CodePostal = patient.Adresse.CodePostal;
-                patientInDb.Adresse.Ville = patient.Adresse.Ville;
-                patientInDb.Adresse.Pays = patient.Adresse.Pays;
-                patientInDb.Anamnèse = patient.Anamnèse;
-                patientInDb.Commentaire = patient.Commentaire;
+
+                Mapper.Map(patientInDb, patient);
 
             }
             _context.SaveChanges();
             return RedirectToAction("Index", "Patients");
         }
 
-        public ActionResult Editer(int id)
+        public ActionResult EditerPatient(int id)
         {
             var patient = _context.Patients.Include(a => a.Adresse).SingleOrDefault(p => p.Id == id);
 

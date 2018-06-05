@@ -1,6 +1,6 @@
 ﻿@model ProjetLogoV1._0.Models.Patient
 @{
-    ViewBag.Title = "Detail";
+    ViewBag.Title = "DetailPatient";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -61,3 +61,5 @@
 <h4>Commentaires supplémentaires</h4>
 
 <p>@Model.Commentaire</p>
+
+<button type="button" class="btn btn-primary btn-lg" onclick="window.history.back();">Retour</button>
