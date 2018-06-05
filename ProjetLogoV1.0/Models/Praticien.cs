@@ -51,5 +51,10 @@ namespace ProjetLogoV1._0.Models
 
         [ForeignKey("Specialisation")]
         public int SpecialisationId { get; set; }
+
+        public Fonction Fonction { get; set; }
+
+        [ForeignKey("Fonction")]
+        public int FonctionId { get; set; }
     }
 }

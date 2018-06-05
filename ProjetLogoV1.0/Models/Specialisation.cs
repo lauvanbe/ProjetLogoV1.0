@@ -20,10 +20,5 @@ namespace ProjetLogoV1._0.Models
         [Display(Name = "Description de la spécialisation")]
         [StringLength(255)]
         public string Description { get; set; }
-
-        public Fonction Fonction { get; set; }
-
-        [ForeignKey("Fonction")]
-        public int FonctionId { get; set; }
     }
 }

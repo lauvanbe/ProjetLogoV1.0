@@ -26,13 +26,25 @@ namespace ProjetLogoV1._0.Controllers
 
         public ViewResult Index()
         {
-            var praticien = _context.Praticiens.Include(a => a.Adresse).Include(s => s.Specialisation).ToList();
+            var praticien = _context.Praticiens.Include(a => a.Adresse).Include(s => s.Specialisation).Include(f => f.Fonction).ToList();
 
             if (User.IsInRole(NomRole.CanManagePatients))
             {
                 return View("Index", praticien);
             }
             return View("ReadOnlyPraticien", praticien);
+        }
+
+        [Route("DetailPraticien/{id}")]
+        public ActionResult DetailPraticien(int id)
+        {
+            var praticien = _context.Praticiens.Include(a => a.Adresse).Include(s => s.Specialisation).Include(f => f.Fonction).SingleOrDefault(p => p.Id == id);
+
+            if (praticien == null)
+            {
+                return HttpNotFound();
+            }
+            return View(praticien);
         }
     }
 }

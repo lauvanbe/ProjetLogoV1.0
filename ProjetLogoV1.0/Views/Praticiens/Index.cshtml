@@ -32,7 +32,7 @@ else
         @foreach (var praticien in Model)
         {
             <tr>
-                <td>@Html.ActionLink(praticien.Nom, "Detail", "Praticien", new {id = praticien.Id}, null)</td>
+                <td>@Html.ActionLink(praticien.Nom, "DetailPraticien", "Praticiens", new {id = praticien.Id}, null)</td>
                 <td>@praticien.Prenom</td>
                 <td>@praticien.Inami</td>
                 <td>@praticien.Specialisation.Nom</td>
@@ -40,7 +40,7 @@ else
                 <td>0032/@praticien.TelFixe</td>
                 <td>0032/@praticien.Gsm</td>
                 <td>
-                    <button type="submit" class="btn btn-warning btn-sm" onclick="location.href = '@Url.Action("Editer", "Praticien", new {id = praticien.Id})';">Editer</button>
+                    <button type="submit" class="btn btn-warning btn-sm" onclick="location.href = '@Url.Action("Editer", "Praticiens", new {id = praticien.Id})';">Editer</button>
                     <button type="submit" class="btn btn-danger btn-sm">Supprimer</button>
                 </td>
             </tr>

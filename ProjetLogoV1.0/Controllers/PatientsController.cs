@@ -86,8 +86,23 @@ namespace ProjetLogoV1._0.Controllers
             else
             {
                 var patientInDb = _context.Patients.Include(a => a.Adresse).Single(p => p.Id == patient.Id);
-
-                Mapper.Map(patient, patientInDb);
+                patientInDb.Nom = patient.Nom;
+                patientInDb.Prenom = patient.Prenom;
+                patientInDb.DateNaissance = patient.DateNaissance;
+                patientInDb.Email = patient.Email;
+                patientInDb.TelFixe = patient.TelFixe;
+                patientInDb.Gsm = patient.Gsm;
+                patientInDb.PersonneContact = patient.PersonneContact;
+                patientInDb.TelContact = patient.TelContact;
+                patientInDb.LateraliteId = patient.LateraliteId;
+                patientInDb.Adresse.Rue = patient.Adresse.Rue;
+                patientInDb.Adresse.NumeroRue = patient.Adresse.NumeroRue;
+                patientInDb.Adresse.BoitePostal = patient.Adresse.BoitePostal;
+                patientInDb.Adresse.CodePostal = patient.Adresse.CodePostal;
+                patientInDb.Adresse.Ville = patient.Adresse.Ville;
+                patientInDb.Adresse.Pays = patient.Adresse.Pays;
+                patientInDb.Anamnèse = patient.Anamnèse;
+                patientInDb.Commentaire = patient.Commentaire;
 
             }
             _context.SaveChanges();

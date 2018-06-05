@@ -1,0 +1,62 @@
+﻿@model ProjetLogoV1._0.Models.Praticien
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detail du praticien</h2>
+
+<h3>Donnée du praticien</h3>
+
+<ul>
+    <li>Nom du praticien : @Model.Nom</li>
+    <li>Prénom du praticien : @Model.Prenom</li>
+    <li>Numéro Inami : @Model.Inami</li>
+    <li>Fonction : @Model.Fonction.Nom</li>
+    <li>Spécialisation : @Model.Specialisation.Nom</li>
+    <li>Adresse Email : @Model.Email</li>
+    @if (Model.TelFixe == null)
+    {
+        <li>Pas de téléphone fixe connu!</li>
+    }
+    else
+    {
+        <li>Numéro de téléphone fixe : @Model.TelFixe</li>
+    }
+
+    @if (Model.Gsm == null)
+    {
+        <li>Pas de GSM connu!</li>
+    }
+    else
+    {
+        <li>Numéro de GSM : @Model.Gsm</li>
+    }
+    
+    @if (Model.Deplacement == true)
+    {
+        <li>Le praticien peut effectuer des déplacements à domicile.</li>
+    }
+    else
+    {
+        <li>Le praticien ne se déplace pas à domicile.</li>
+    }
+</ul>
+
+<h3>Adresse du praticien</h3>
+
+<ul>
+    <li>Nom de rue : @Model.Adresse.Rue</li>
+    <li>Numéro de maison/appartement : @Model.Adresse.NumeroRue</li>
+    @if (Model.Adresse.BoitePostal == null)
+    {
+        <li>Pas de numéo de boîte encodé!</li>
+    }
+    else
+    {
+        <li>Boîte postal : @Model.Adresse.BoitePostal</li>
+    }
+    <li>Code postal : @Model.Adresse.CodePostal</li>
+    <li>Ville : @Model.Adresse.Ville</li>
+    <li>Pays : @Model.Adresse.Pays</li>
+</ul>

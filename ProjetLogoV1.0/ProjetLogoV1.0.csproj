@@ -271,6 +271,18 @@
     <Compile Include="Migrations\201806041414415_AjoutPraticienModel.Designer.cs">
       <DependentUpon>201806041414415_AjoutPraticienModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201806041554368_ChangementNomFonction.cs" />
+    <Compile Include="Migrations\201806041554368_ChangementNomFonction.Designer.cs">
+      <DependentUpon>201806041554368_ChangementNomFonction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806050638201_DeplacementFonctionDansPraticien.cs" />
+    <Compile Include="Migrations\201806050638201_DeplacementFonctionDansPraticien.Designer.cs">
+      <DependentUpon>201806050638201_DeplacementFonctionDansPraticien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806050643258_DeplacementFkFonctionDansPraticien.cs" />
+    <Compile Include="Migrations\201806050643258_DeplacementFkFonctionDansPraticien.Designer.cs">
+      <DependentUpon>201806050643258_DeplacementFkFonctionDansPraticien.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Adresse.cs" />
@@ -495,6 +507,7 @@
     <Content Include="Views\Patients\ReadOnlyPatient.cshtml" />
     <Content Include="Views\Praticiens\Index.cshtml" />
     <Content Include="Views\Praticiens\ReadOnlyPraticien.cshtml" />
+    <Content Include="Views\Praticiens\DetailPraticien.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -560,6 +573,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201806041414415_AjoutPraticienModel.resx">
       <DependentUpon>201806041414415_AjoutPraticienModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806041554368_ChangementNomFonction.resx">
+      <DependentUpon>201806041554368_ChangementNomFonction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806050638201_DeplacementFonctionDansPraticien.resx">
+      <DependentUpon>201806050638201_DeplacementFonctionDansPraticien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806050643258_DeplacementFkFonctionDansPraticien.resx">
+      <DependentUpon>201806050643258_DeplacementFkFonctionDansPraticien.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
