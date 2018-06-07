@@ -6,47 +6,78 @@
 
 <h2>Index</h2>
 
-<h2>Gestion des patients</h2>
+<h2>Gestion des praticiens</h2>
 
 @if (!Model.Any())
 {
-    <p>Pas encore de patients connu!</p>
+    <p>Pas encore de praticien connu!</p>
 }
 else
 {
-    <table class="table table-striped table-hover">
+    <table id="praticien" class="table table-striped table-hover">
         <thead>
-        <tr>
-            <th>Nom</th>
-            <th>Prénom</th>
-            <th>Numéro Inami</th>
-            <th>Spécialisation</th>
-            <th>Adresse Email</th>
-            <th>Téléphone fixe</th>
-            <th>Gsm</th>
-            <th>Edition - Suppression</th>
-        </tr>
+            <tr>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Numéro Inami</th>
+                <th>Fonction</th>
+                <th>Spécialisation</th>
+                <th>Adresse Email</th>
+                <th>Téléphone fixe</th>
+                <th>Gsm</th>
+                <th>Edition - Suppression</th>
+            </tr>
         </thead>
         <tbody>
 
-        @foreach (var praticien in Model)
-        {
-            <tr>
-                <td>@Html.ActionLink(praticien.Nom, "DetailPraticien", "Praticiens", new {id = praticien.Id}, null)</td>
-                <td>@praticien.Prenom</td>
-                <td>@praticien.Inami</td>
-                <td>@praticien.Specialisation.Nom</td>
-                <td>@praticien.Email</td>
-                <td>0032/@praticien.TelFixe</td>
-                <td>0032/@praticien.Gsm</td>
-                <td>
-                    <button type="submit" class="btn btn-warning btn-sm" onclick="location.href = '@Url.Action("Editer", "Praticiens", new {id = praticien.Id})';">Editer</button>
-                    <button type="submit" class="btn btn-danger btn-sm">Supprimer</button>
-                </td>
-            </tr>
-        }
+            @foreach (var praticien in Model)
+            {
+                <tr>
+                    <td>@Html.ActionLink(praticien.Nom, "DetailPraticien", "Praticiens", new { id = praticien.Id }, null)</td>
+                    <td>@praticien.Prenom</td>
+                    <td>@praticien.Inami</td>
+                    <td>@praticien.Fonction.Nom</td>
+                    <td>@praticien.Specialisation.Nom</td>
+                    <td>@praticien.Email</td>
+                    <td>0032/@praticien.TelFixe</td>
+                    <td>0032/@praticien.Gsm</td>
+                    <td>
+                        <button type="submit" class="btn btn-warning btn-sm" onclick="location.href = '@Url.Action("Editer", "Praticiens", new {id = praticien.Id})';">Editer</button>
+                        <button data-praticien-id="@praticien.Id" type="submit" class="btn btn-danger btn-sm js-delete">Supprimer</button>
+                    </td>
+                </tr>
+            }
         </tbody>
     </table>
+}
 
-    <button type="submit" class="btn btn-primary" onclick="location.href = '@Url.Action("AjoutPatient", "Patients")';">Ajouter un nouveau praticien</button>
+<button type="submit" class="btn btn-primary" onclick="location.href = '@Url.Action("AjoutPraticien", "Praticiens")';">Ajouter un nouveau praticien</button>
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+
+            var table = $("#praticien").dataTable();
+
+            $("#praticien").on("click", ".js-delete",
+                function () {
+
+                    var button = $(this);
+
+                    bootbox.confirm("Etes vous sur de vouloir supprimer ce praticien?",
+                        function (result) {
+                            if (result) {
+                                $.ajax({
+                                    url: "/api/praticiens/" + button.attr("data-praticien-id"),
+                                    method: "DELETE",
+                                    success: function () {
+                                        table.row(button.parents("tr")).remove().draw();
+                                    }
+                                });
+                            }
+                        });
+                });
+        });
+    </script>
 }

@@ -1,9 +1,7 @@
 ﻿using System.Data.Entity;
 using System.Linq;
-using System.Net;
 using System.Web.Mvc;
 using AutoMapper;
-using ProjetLogoV1._0.Dtos;
 using ProjetLogoV1._0.Models;
 using ProjetLogoV1._0.ViewModels;
 

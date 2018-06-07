@@ -15,6 +15,9 @@ namespace ProjetLogoV1._0.App_Start
             Mapper.CreateMap<Patient, PatientDto>();
             Mapper.CreateMap<PatientDto, Patient>();
 
+            Mapper.CreateMap<Praticien, PraticienDto>();
+            Mapper.CreateMap<PraticienDto, Praticien>();
+
         }
     }
 }
