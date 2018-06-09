@@ -52,23 +52,21 @@ else
     <script>
         $(document).ready(function () {
 
-            var table = $("#patients").dataTable();
+            var table = $("#patients").DataTable();
 
-            $("#patients").on("click", ".js-delete",
-                function() {
+            $("#patients").on("click",".js-delete",function() {
 
                     var button = $(this);
 
-                    bootbox.confirm("Etes vous sur de vouloir supprimer ce patient?",
-                        function(result) {
+                    bootbox.confirm("Etes vous sur de vouloir supprimer ce patient?", function(result) {
                             if (result) {
-                                $.ajax({
-                                    url: "/api/patients/" + button.attr("data-patient-id"),
-                                    method: "DELETE",
-                                    success: function () {
-                                        table.row(button.parents("tr")).remove().draw();
-                                    }
-                                });
+                                        $.ajax({
+                                            url: "/api/patients/" + button.attr("data-patient-id"),
+                                            method: "DELETE",
+                                            success: function() {
+                                                table.row(button.parents("tr")).remove().draw();
+                                            }
+                                        });
                             }
                         });
                 });
