@@ -496,6 +496,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="ImageSite\logopedie2.jpg" />
+    <Content Include="ImageSite\Logopédie1.jpg" />
+    <Content Include="ImageSite\slide-logopedie.png" />
     <Content Include="Scripts\bootbox.js" />
     <Content Include="Scripts\bootbox.min.js" />
     <Content Include="Scripts\bootstrap-datepicker.js" />
