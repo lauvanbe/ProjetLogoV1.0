@@ -8,9 +8,9 @@ namespace ProjetLogoV1._0.ViewModels
 {
     public class NewPraticienViewModel
     {
-        public Specialisation Specialisation { get; set; }
+        public IEnumerable<Specialisation> Specialisations { get; set; }
 
-        public Fonction Fonction { get; set; }
+        public IEnumerable<Fonction> Fonctions { get; set; }
 
         public Praticien Praticien { get; set; }
     }

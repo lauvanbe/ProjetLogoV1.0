@@ -15,10 +15,5 @@ namespace ProjetLogoV1._0.Models
         [Display(Name = "Nom de la spécialisation")]
         [StringLength(55)]
         public string Nom { get; set; }
-
-        [Required(ErrorMessage = "La description de la spécialisation est requise.")]
-        [Display(Name = "Description de la spécialisation")]
-        [StringLength(255)]
-        public string Description { get; set; }
     }
 }

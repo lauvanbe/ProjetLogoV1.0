@@ -4,44 +4,44 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Ajout d'un nouveau praticien</h2>
+<h2>Edition d'un praticien</h2>
 
-@using(@Html.BeginForm("save", "Praticiens"))
+@using (@Html.BeginForm("save", "Praticiens"))
 {
     @Html.ValidationSummary(true, "Veuillez corriger les erreurs suivantes!")
     <div class="row">
         <div class="col-md-4">
             <div class="form-group">
                 @Html.LabelFor(p => p.Praticien.Inami)
-                @Html.TextBoxFor(p => p.Praticien.Inami, new {@class = "form-control" })
+                @Html.TextBoxFor(p => p.Praticien.Inami, new { @class = "form-control" })
                 @Html.ValidationMessageFor(p => p.Praticien.Inami)
             </div>
-            
+
             <div class="form-group">
-                @Html.LabelFor(p =>p.Praticien.Nom)
-                @Html.TextBoxFor(p => p.Praticien.Nom, new {@class = "form-control" })
+                @Html.LabelFor(p => p.Praticien.Nom)
+                @Html.TextBoxFor(p => p.Praticien.Nom, new { @class = "form-control" })
                 @Html.ValidationMessageFor(p => p.Praticien.Nom)
             </div>
-            
+
             <div class="form-group">
-                @Html.LabelFor(p =>p.Praticien.Prenom)
-                @Html.TextBoxFor(p => p.Praticien.Prenom, new {@class = "form-control" })
+                @Html.LabelFor(p => p.Praticien.Prenom)
+                @Html.TextBoxFor(p => p.Praticien.Prenom, new { @class = "form-control" })
                 @Html.ValidationMessageFor(p => p.Praticien.Prenom)
             </div>
-            
+
             <div class="form-group">
                 @Html.LabelFor(p => p.Praticien.Email)
                 <br />
                 @Html.EditorFor(p => p.Praticien.Email, new { @class = "form-control" })
                 @Html.ValidationMessageFor(p => p.Praticien.Email)
             </div>
-            
+
             <div class="form-group">
                 @Html.LabelFor(p => p.Praticien.FonctionId)
                 @Html.DropDownListFor(p => p.Praticien.FonctionId, new SelectList(Model.Fonctions, "Id", "Nom"), "Selectionner la fonction", new { @class = "form-control" })
                 @Html.ValidationMessageFor(p => p.Praticien.FonctionId)
             </div>
-            
+
             <div class="form-group">
                 @Html.LabelFor(p => p.Praticien.SpecialisationId)
                 @Html.DropDownListFor(p => p.Praticien.SpecialisationId, new SelectList(Model.Specialisations, "Id", "Nom"), "Selectionner la fonction", new { @class = "form-control" })
@@ -58,40 +58,40 @@
                 @Html.TextBoxFor(p => p.Praticien.Gsm, new { @class = "form-control" })
             </div>
         </div>
-        
+
         <div class="col-md-4">
             <div class="form-group">
                 @Html.LabelFor(p => p.Praticien.Adresse.Rue)
-                @Html.TextBoxFor(p => p.Praticien.Adresse.Rue, new {@class = "form-control"})
+                @Html.TextBoxFor(p => p.Praticien.Adresse.Rue, new { @class = "form-control" })
                 @Html.ValidationMessageFor(p => p.Praticien.Adresse.Rue)
             </div>
 
             <div class="form-group">
                 @Html.LabelFor(p => p.Praticien.Adresse.NumeroRue)
-                @Html.TextBoxFor(p => p.Praticien.Adresse.NumeroRue, new {@class = "form-control"})
+                @Html.TextBoxFor(p => p.Praticien.Adresse.NumeroRue, new { @class = "form-control" })
                 @Html.ValidationMessageFor(p => p.Praticien.Adresse.NumeroRue)
             </div>
 
             <div class="form-group">
                 @Html.LabelFor(p => p.Praticien.Adresse.BoitePostal)
-                @Html.TextBoxFor(p => p.Praticien.Adresse.BoitePostal, new {@class = "form-control"})
+                @Html.TextBoxFor(p => p.Praticien.Adresse.BoitePostal, new { @class = "form-control" })
             </div>
 
             <div class="form-group">
                 @Html.LabelFor(p => p.Praticien.Adresse.CodePostal)
-                @Html.TextBoxFor(p => p.Praticien.Adresse.CodePostal, new {@class = "form-control"})
+                @Html.TextBoxFor(p => p.Praticien.Adresse.CodePostal, new { @class = "form-control" })
                 @Html.ValidationMessageFor(p => p.Praticien.Adresse.CodePostal)
             </div>
 
             <div class="form-group">
                 @Html.LabelFor(p => p.Praticien.Adresse.Ville)
-                @Html.TextBoxFor(p => p.Praticien.Adresse.Ville, new {@class = "form-control"})
+                @Html.TextBoxFor(p => p.Praticien.Adresse.Ville, new { @class = "form-control" })
                 @Html.ValidationMessageFor(p => p.Praticien.Adresse.Ville)
             </div>
 
             <div class="form-group">
                 @Html.LabelFor(p => p.Praticien.Adresse.Pays)
-                @Html.TextBoxFor(p => p.Praticien.Adresse.Pays, new {@class = "form-control"})
+                @Html.TextBoxFor(p => p.Praticien.Adresse.Pays, new { @class = "form-control" })
                 @Html.ValidationMessageFor(p => p.Praticien.Adresse.Pays)
             </div>
         </div>

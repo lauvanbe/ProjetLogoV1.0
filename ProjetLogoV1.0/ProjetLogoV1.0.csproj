@@ -314,6 +314,10 @@
     <Compile Include="Migrations\201806050643258_DeplacementFkFonctionDansPraticien.Designer.cs">
       <DependentUpon>201806050643258_DeplacementFkFonctionDansPraticien.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201806110703149_SupprimerDescriptionSpecialisation.cs" />
+    <Compile Include="Migrations\201806110703149_SupprimerDescriptionSpecialisation.Designer.cs">
+      <DependentUpon>201806110703149_SupprimerDescriptionSpecialisation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Adresse.cs" />
@@ -717,6 +721,7 @@
     <Content Include="Views\Praticiens\ReadOnlyPraticien.cshtml" />
     <Content Include="Views\Praticiens\DetailPraticien.cshtml" />
     <Content Include="Views\Praticiens\AjoutPraticien.cshtml" />
+    <Content Include="Views\Praticiens\EditerPraticien.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -791,6 +796,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201806050643258_DeplacementFkFonctionDansPraticien.resx">
       <DependentUpon>201806050643258_DeplacementFkFonctionDansPraticien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806110703149_SupprimerDescriptionSpecialisation.resx">
+      <DependentUpon>201806110703149_SupprimerDescriptionSpecialisation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -50,11 +50,14 @@ namespace ProjetLogoV1._0.Controllers
         public ActionResult AjoutPraticien()
         {
 
+            var fonction = _context.Fonctions.ToList();
+            var specialistion = _context.Specialisations.ToList();
+
             var viewModel = new NewPraticienViewModel
             {
                 Praticien = new Praticien(),
-                Fonction = new Fonction(),
-                Specialisation = new Specialisation()
+                Fonctions = fonction,
+                Specialisations = specialistion
             };
 
             return View(viewModel);
@@ -62,15 +65,15 @@ namespace ProjetLogoV1._0.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Save(Praticien praticien, Fonction fonction, Specialisation specialisation)
+        public ActionResult Save(Praticien praticien)
         {
             if (!ModelState.IsValid)
             {
                 var viewModel = new NewPraticienViewModel
                 {
                     Praticien = praticien,
-                    Fonction = fonction,
-                    Specialisation = specialisation
+                    Fonctions = _context.Fonctions.ToList(),
+                    Specialisations = _context.Specialisations.ToList()
                 };
 
                 return View("AjoutPraticien", viewModel);
@@ -89,6 +92,24 @@ namespace ProjetLogoV1._0.Controllers
             }
             _context.SaveChanges();
             return RedirectToAction("Index", "Praticiens");
+        }
+
+        public ActionResult EditerPraticien(int id)
+        {
+            var praticien = _context.Praticiens.Include(a => a.Adresse).SingleOrDefault(p => p.Id == id);
+
+            if (praticien == null)
+            {
+                return HttpNotFound();
+            }
+
+            var viewModel = new NewPraticienViewModel
+            {
+                Praticien = praticien,
+                Fonctions = _context.Fonctions.ToList(),
+                Specialisations = _context.Specialisations.ToList()
+            };
+            return View(viewModel);
         }
     }
 }
